@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Fajel Jaseem — Interactive Experience Specialist</title>
+  <meta name="description" content="Head of Programming & Senior Unity Developer specialising in immersive interactive experiences — LED installations, multi-touch, hardware integration, AI and real-time visual systems." />
+  <meta name="author" content="Mohammed Fajel Jaseem" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mohammed Fajel Jaseem — Interactive Experience Specialist" />
+  <meta property="og:description" content="Senior Unity Developer building immersive installations, multi-touch experiences, AI photobooths, kinetic systems and large-format LED environments." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ====================== PRELOADER ====================== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__name">FJ</div>
+      <div class="preloader__bar"><span></span></div>
+      <div class="preloader__label">Initialising experience</div>
+    </div>
+  </div>
+
+  <!-- ====================== CUSTOM CURSOR ====================== -->
+  <div class="cursor" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ====================== SCROLL PROGRESS ====================== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ====================== NAV ====================== -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__logo" data-cursor="hover">
+      <span class="nav__logo-mark">FJ</span>
+      <span class="nav__logo-text">Fajel&nbsp;Jaseem</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about" data-cursor="hover">About</a>
+      <a href="#expertise" data-cursor="hover">Expertise</a>
+      <a href="#work" data-cursor="hover">Projects</a>
+      <a href="#skills" data-cursor="hover">Skills</a>
+      <a href="#approach" data-cursor="hover">Approach</a>
+      <a href="#contact" class="nav__cta" data-cursor="hover">Contact</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ====================== HERO ====================== -->
+    <section class="hero" id="home">
+      <canvas class="hero__canvas" id="heroCanvas"></canvas>
+      <div class="hero__grid"></div>
+      <div class="hero__glow"></div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal">
+          <span class="hero__eyebrow-dot"></span>
+          Interactive Experience Specialist · United Arab Emirates
+        </p>
+        <h1 class="hero__title">
+          <span class="reveal" style="--d:.05s">Mohammed</span>
+          <span class="reveal" style="--d:.12s">Fajel <em>Jaseem</em></span>
+        </h1>
+        <p class="hero__sub reveal" style="--d:.2s">
+          Head of Programming &amp; Senior Unity Developer. I turn creative concepts into
+          <strong>stable, immersive installations</strong> — where software meets screens,
+          sensors, motors, hardware and the people in the room.
+        </p>
+        <div class="hero__actions reveal" style="--d:.28s">
+          <a href="#work" class="btn btn--primary" data-cursor="hover">
+            <span>View Selected Work</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#contact" class="btn btn--ghost" data-cursor="hover">Get in touch</a>
+        </div>
+
+        <ul class="hero__tags reveal" style="--d:.36s">
+          <li>Unity &amp; C#</li>
+          <li>Hardware Integration</li>
+          <li>LED &amp; Multi-touch</li>
+          <li>AI &amp; Real-time Visuals</li>
+        </ul>
+      </div>
+
+      <a href="#about" class="hero__scroll" data-cursor="hover" aria-label="Scroll down">
+        <span class="hero__scroll-line"></span>
+        <span class="hero__scroll-text">Scroll</span>
+      </a>
+    </section>
+
+    <!-- ====================== ABOUT ====================== -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">01</span>
+          <h2 class="section__title">Bridging code &amp; the&nbsp;physical&nbsp;world</h2>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__lead reveal">
+            <p>
+              I design and develop complete interactive experiences for events, exhibitions,
+              museums, experience centres and permanent installations. With
+              <strong>100+ applications delivered</strong>, I've built everything from
+              large-scale LED environments and multi-touch tables to AI photobooths,
+              kinetic systems and real-time analytics platforms.
+            </p>
+            <p>
+              My role goes beyond programming. I work alongside designers, content creators,
+              3D artists, engineers and hardware suppliers to transform an idea into something
+              that is technically reliable, visually engaging and effortless to use — and
+              I stay involved from the first prototype to on-site commissioning and final handover.
+            </p>
+          </div>
+
+          <ul class="stats reveal">
+            <li class="stat">
+              <span class="stat__num" data-count="100" data-suffix="+">0</span>
+              <span class="stat__label">Experiences delivered</span>
+            </li>
+            <li class="stat">
+              <span class="stat__num" data-count="14" data-suffix="">0</span>
+              <span class="stat__label">Industries served</span>
+            </li>
+            <li class="stat">
+              <span class="stat__num" data-count="25" data-suffix="+">0</span>
+              <span class="stat__label">Technologies &amp; tools</span>
+            </li>
+            <li class="stat">
+              <span class="stat__num stat__num--text">24/7</span>
+              <span class="stat__label">Reliability engineered</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== EXPERTISE ====================== -->
+    <section class="section expertise" id="expertise">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">02</span>
+          <h2 class="section__title">What I do</h2>
+          <p class="section__intro">A complete interactive experience is never just an app. These are the disciplines I bring together.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card card--spotlight reveal" data-cursor="hover">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Interactive Applications</h3>
+            <p>Touchscreen kiosks, multi-touch installations and guided experiences for exhibitions, events and museums.</p>
+          </article>
+
+          <article class="card card--spotlight reveal" data-cursor="hover">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="12" rx="1.5"/><path d="M7 21h10M12 17v4M6 9l2 2-2 2M11 13h4"/></svg>
+            </div>
+            <h3>Large-Format LED</h3>
+            <p>Globes, curved and panoramic walls, portrait displays and interactive floors — tuned for non-standard resolutions and pixel-maps.</p>
+          </article>
+
+          <article class="card card--spotlight reveal" data-cursor="hover">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+            </div>
+            <h3>Hardware Integration</h3>
+            <p>RFID &amp; NFC, sensors, encoders, buttons, motors and controllers — connected reliably over serial, UDP, OSC and HTTP.</p>
+          </article>
+
+          <article class="card card--spotlight reveal" data-cursor="hover">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z"/></svg>
+            </div>
+            <h3>AI &amp; Real-time Visuals</h3>
+            <p>AI photobooths, camera-based transformation and real-time diffusion pipelines with GPU-accelerated image generation.</p>
+          </article>
+
+          <article class="card card--spotlight reveal" data-cursor="hover">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24"><path d="M3 17l5-5 3 3 5-6 5 5"/><path d="M3 21h18M3 3v18"/></svg>
+            </div>
+            <h3>Data &amp; Visualisation</h3>
+            <p>Real-time dashboards and heatmaps that turn camera activity and footfall into clean, readable visual stories.</p>
+          </article>
+
+          <article class="card card--spotlight reveal" data-cursor="hover">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3v6M9 6l3-3 3 3"/><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M9 14h6"/></svg>
+            </div>
+            <h3>Kinetic &amp; Motion</h3>
+            <p>Motor-control systems with calibration, position &amp; speed commands and reliable software-to-hardware synchronisation.</p>
+          </article>
+
+          <article class="card card--spotlight reveal" data-cursor="hover">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24"><path d="M4 5h16v11H4z"/><path d="M2 20h20M9 9l-2 2 2 2M15 9l2 2-2 2"/></svg>
+            </div>
+            <h3>Install &amp; Commissioning</h3>
+            <p>Deployment, network setup, calibration, on-site troubleshooting, operator training and live-event support.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== WORK ====================== -->
+    <section class="section work" id="work">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">03</span>
+          <h2 class="section__title">Selected projects</h2>
+          <p class="section__intro">A cross-section of installations spanning interaction, AI, hardware, LED and data.</p>
+        </div>
+
+        <div class="filters reveal" id="filters">
+          <button class="filter is-active" data-filter="all" data-cursor="hover">All</button>
+          <button class="filter" data-filter="interactive" data-cursor="hover">Interactive</button>
+          <button class="filter" data-filter="ai" data-cursor="hover">AI</button>
+          <button class="filter" data-filter="hardware" data-cursor="hover">Hardware</button>
+          <button class="filter" data-filter="led" data-cursor="hover">LED</button>
+          <button class="filter" data-filter="data" data-cursor="hover">Data</button>
+        </div>
+
+        <div class="projects" id="projects">
+
+          <article class="project reveal" data-category="ai interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">01</span>
+              <span class="project__cat">AI · Real-time</span>
+            </div>
+            <h3 class="project__title">Real-time AI Avatar</h3>
+            <p class="project__desc">A live AI avatar experience built for a major technology expo — a camera feed transforms visitors into stylised AI characters in real time using GPU-accelerated diffusion pipelines, then lets them save and share the result.</p>
+            <ul class="project__tags"><li>Unity</li><li>Stable Diffusion</li><li>Real-time</li><li>GPU</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="ai interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">02</span>
+              <span class="project__cat">AI · XR</span>
+            </div>
+            <h3 class="project__title">VR Conversational AI</h3>
+            <p class="project__desc">A real-time, speech-to-speech conversational AI for standalone VR — skipping the usual speech-to-text → text-to-speech pipeline for low-latency voice, with live language and voice services driving an in-headset character.</p>
+            <ul class="project__tags"><li>Unity</li><li>VR / Quest</li><li>LLM</li><li>Voice</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="ai interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">03</span>
+              <span class="project__cat">AI · Interactive</span>
+            </div>
+            <h3 class="project__title">AI-Powered Photobooth</h3>
+            <p class="project__desc">A complete photobooth journey for high-volume events: live preview, countdown capture, portrait cropping, AI image processing, custom frames, QR generation, email delivery and print-ready output — with English &amp; Arabic flows.</p>
+            <ul class="project__tags"><li>Unity</li><li>Python</li><li>Flask</li><li>OpenCV</li><li>QR</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="interactive ai" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">04</span>
+              <span class="project__cat">Interactive · Vision</span>
+            </div>
+            <h3 class="project__title">Body-Tracking Shape Game</h3>
+            <p class="project__desc">A depth-camera body-tracking game where players use their own movement to match and form shapes on screen — real-time skeletal tracking drives the entire interaction, no controllers required.</p>
+            <ul class="project__tags"><li>Unity</li><li>Kinect</li><li>Body Tracking</li><li>Computer Vision</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="hardware led" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">05</span>
+              <span class="project__cat">Hardware · Kinetic</span>
+            </div>
+            <h3 class="project__title">Kinetic Motion Wall</h3>
+            <p class="project__desc">A control system driving a wall of motors through an external motion controller — individual position &amp; speed commands, calibration and zeroing, status monitoring, predefined scenarios and file-based sequence execution.</p>
+            <ul class="project__tags"><li>Unity</li><li>Serial</li><li>UDP</li><li>Motor Control</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="hardware" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">06</span>
+              <span class="project__cat">Hardware · Robotics</span>
+            </div>
+            <h3 class="project__title">Robotic Arm Experience</h3>
+            <p class="project__desc">Unity-driven control of a robotic arm for an interactive installation — coordinated motion, safety handling and reliable synchronisation between the application and the physical hardware.</p>
+            <ul class="project__tags"><li>Unity</li><li>Robotics</li><li>Serial</li><li>Motion</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="led interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">07</span>
+              <span class="project__cat">LED · Interactive</span>
+            </div>
+            <h3 class="project__title">Interactive LED Floor Game</h3>
+            <p class="project__desc">A playable LED-floor experience where visitors interact by stepping on the surface, with footfall detection mapped onto a custom pixel-grid display for responsive, full-body gameplay.</p>
+            <ul class="project__tags"><li>Unity</li><li>LED Floor</li><li>Sensors</li><li>Pixel-map</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="interactive led" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">08</span>
+              <span class="project__cat">Interactive · LED</span>
+            </div>
+            <h3 class="project__title">42-Element Video Wall</h3>
+            <p class="project__desc">A large-format wall of 42 selectable content elements with smooth centre-focus animation, high-resolution playback, idle scrolling and automatic reset — engineered for stable, continuous operation.</p>
+            <ul class="project__tags"><li>Unity</li><li>Video</li><li>Large-format</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="interactive data" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">09</span>
+              <span class="project__cat">Interactive · Education</span>
+            </div>
+            <h3 class="project__title">Marine Conservation Exhibition</h3>
+            <p class="project__desc">A suite of experiences for a marine-conservation exhibition — an arcade-style chase game, a species quiz, a digital pledge wall and a climate visualisation showing how sand temperature shapes turtle-hatchling outcomes.</p>
+            <ul class="project__tags"><li>Unity</li><li>Multi-app</li><li>Data Viz</li><li>Education</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="interactive hardware" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">10</span>
+              <span class="project__cat">Interactive · Hardware</span>
+            </div>
+            <h3 class="project__title">Tangible Interactive Table</h3>
+            <p class="project__desc">A multi-user table that recognises physical objects and touch simultaneously, linking tangible markers to content, with English/Arabic switching on specialised touch-table hardware.</p>
+            <ul class="project__tags"><li>TUIO</li><li>Multi-touch</li><li>Object Tracking</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="hardware interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">11</span>
+              <span class="project__cat">Hardware · Event</span>
+            </div>
+            <h3 class="project__title">Motorised Rotating Table</h3>
+            <p class="project__desc">A motor-driven rotating table for a finance event — physical rotation synchronised with on-screen content and interaction to reveal information as the surface turns.</p>
+            <ul class="project__tags"><li>Unity</li><li>Motor Control</li><li>Serial</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="hardware interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">12</span>
+              <span class="project__cat">Hardware · Activation</span>
+            </div>
+            <h3 class="project__title">RFID Activation Experience</h3>
+            <p class="project__desc">An RFID-driven brand activation where tangible cards and tokens trigger personalised content and reward flows at an event stand, with smooth attract-to-reward journeys.</p>
+            <ul class="project__tags"><li>Unity</li><li>RFID</li><li>Event</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">13</span>
+              <span class="project__cat">Interactive · Touch</span>
+            </div>
+            <h3 class="project__title">3D Cityscape Touch App</h3>
+            <p class="project__desc">A large touchscreen application for exploring a 3D cityscape and masterplan, with cloud-connected content delivery and smooth navigation across districts and points of interest.</p>
+            <ul class="project__tags"><li>Unity</li><li>Touch</li><li>3D</li><li>Cloud</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="hardware interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">14</span>
+              <span class="project__cat">Hardware · Kiosk</span>
+            </div>
+            <h3 class="project__title">Reverse Vending Machine</h3>
+            <p class="project__desc">A recycling-kiosk app: registration, bottle-deposit monitoring over UDP/serial, reward calculation, SMS voucher delivery and cloud voucher management with offline CSV fallback — built to run on legacy Android.</p>
+            <ul class="project__tags"><li>Unity</li><li>UDP</li><li>Cloud</li><li>Android</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="data" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">15</span>
+              <span class="project__cat">Data · Web</span>
+            </div>
+            <h3 class="project__title">Visitor Analytics Heatmap</h3>
+            <p class="project__desc">A web dashboard visualising footfall, unique visitors and camera activity as red/yellow/green zone heatmaps over responsive floor plans — in a dark, blueprint-style UI with real-time updates.</p>
+            <ul class="project__tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Data Viz</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="led interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">16</span>
+              <span class="project__cat">LED · Touch</span>
+            </div>
+            <h3 class="project__title">Interactive Globe Apps</h3>
+            <p class="project__desc">Touch applications mapped onto spherical LED globe displays — content wraps the sphere with smooth navigation and idle attract loops, built as eye-catching centrepiece installations.</p>
+            <ul class="project__tags"><li>Unity</li><li>LED Globe</li><li>Touch</li><li>Pixel-map</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">17</span>
+              <span class="project__cat">Interactive · Multi-screen</span>
+            </div>
+            <h3 class="project__title">Touch &amp; Throw Multi-Display</h3>
+            <p class="project__desc">A multi-screen system where visitors touch one display and “throw” content across to others spanning multiple HDMI outputs — a reusable base for large, multi-screen storytelling walls.</p>
+            <ul class="project__tags"><li>Unity</li><li>Multi-display</li><li>Touch</li><li>HDMI</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">18</span>
+              <span class="project__cat">Interactive · Games</span>
+            </div>
+            <h3 class="project__title">Interactive Sports Games</h3>
+            <p class="project__desc">Crowd-pleasing event games — a penalty-shootout challenge and a digital foosball table — built for fast, physical, multiplayer interaction that holds up under high footfall.</p>
+            <ul class="project__tags"><li>Unity</li><li>Games</li><li>Multiplayer</li><li>Event</li></ul>
+          </article>
+
+          <article class="project reveal" data-category="hardware interactive" data-cursor="hover">
+            <div class="project__top">
+              <span class="project__index">19</span>
+              <span class="project__cat">Hardware · Tangible</span>
+            </div>
+            <h3 class="project__title">Slide-Bar Controlled Experience</h3>
+            <p class="project__desc">A physical slide-bar control drives the on-screen experience — moving the bar scrubs through a timeline of content, linking a tangible hardware input to a responsive display.</p>
+            <ul class="project__tags"><li>Unity</li><li>Serial</li><li>Hardware</li><li>Touch</li></ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== SKILLS ====================== -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">04</span>
+          <h2 class="section__title">Technical expertise</h2>
+          <p class="section__intro">From engine to hardware to cloud — the toolset behind reliable, immersive experiences.</p>
+        </div>
+
+        <div class="skills__grid">
+          <div class="skillset reveal">
+            <h3 class="skillset__title"><span>Unity Development</span></h3>
+            <ul class="skillset__tags">
+              <li>Unity 3D</li><li>C#</li><li>Unity UI</li><li>TextMeshPro</li><li>URP</li>
+              <li>Coroutines</li><li>Event-driven</li><li>Android</li><li>Windows Standalone</li>
+              <li>Kiosk Mode</li><li>Legacy Support</li><li>Optimisation</li>
+            </ul>
+          </div>
+
+          <div class="skillset reveal">
+            <h3 class="skillset__title"><span>Interactive Tech</span></h3>
+            <ul class="skillset__tags">
+              <li>Multi-touch</li><li>TUIO</li><li>Object Tracking</li><li>RFID</li><li>NFC</li>
+              <li>Encoders</li><li>Sensors</li><li>Serial</li><li>UDP</li><li>OSC</li><li>HTTP</li>
+            </ul>
+          </div>
+
+          <div class="skillset reveal">
+            <h3 class="skillset__title"><span>Backend &amp; Web</span></h3>
+            <ul class="skillset__tags">
+              <li>Python</li><li>Flask</li><li>OpenCV</li><li>REST APIs</li>
+              <li>Cloud Databases</li><li>API Gateways</li><li>CSV Fallback</li>
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Dashboards</li>
+            </ul>
+          </div>
+
+          <div class="skillset reveal">
+            <h3 class="skillset__title"><span>AI &amp; Generative</span></h3>
+            <ul class="skillset__tags">
+              <li>Stable Diffusion</li><li>Real-time Pipelines</li><li>Image Generation</li>
+              <li>Character Transformation</li><li>Computer Vision</li><li>GPU Acceleration</li>
+              <li>Image-to-image</li><li>Automated Processing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== APPROACH ====================== -->
+    <section class="section approach" id="approach">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">05</span>
+          <h2 class="section__title">How I work</h2>
+          <p class="section__intro">A successful experience is technically strong, visually engaging and effortless to use.</p>
+        </div>
+
+        <div class="approach__grid">
+          <div class="principle reveal">
+            <span class="principle__no">01</span>
+            <h3>Reliability</h3>
+            <p>Designed for continuous operation with inactivity handling, automatic resets, error recovery and fallback systems.</p>
+          </div>
+          <div class="principle reveal">
+            <span class="principle__no">02</span>
+            <h3>User Experience</h3>
+            <p>Interaction should be intuitive — visitors understand what to do without instructions.</p>
+          </div>
+          <div class="principle reveal">
+            <span class="principle__no">03</span>
+            <h3>Performance</h3>
+            <p>Optimised to the available hardware, display resolution and media requirements of the environment.</p>
+          </div>
+          <div class="principle reveal">
+            <span class="principle__no">04</span>
+            <h3>Scalability</h3>
+            <p>Content, languages, devices and interaction modes can expand without rebuilding the whole system.</p>
+          </div>
+          <div class="principle reveal">
+            <span class="principle__no">05</span>
+            <h3>Communication</h3>
+            <p>Clear, consistent dialogue with clients, creative teams, engineers and suppliers throughout.</p>
+          </div>
+          <div class="principle reveal">
+            <span class="principle__no">06</span>
+            <h3>Problem-Solving</h3>
+            <p>Find the real cause and ship a stable, practical fix suited to the live environment.</p>
+          </div>
+        </div>
+
+        <!-- Lifecycle -->
+        <div class="lifecycle reveal">
+          <h3 class="lifecycle__title">From concept to commissioning</h3>
+          <ol class="lifecycle__steps">
+            <li><span>01</span><strong>Concept &amp; Planning</strong><em>Feasibility, hardware, architecture</em></li>
+            <li><span>02</span><strong>Development</strong><em>Functionality, content, integration</em></li>
+            <li><span>03</span><strong>Testing</strong><em>Performance, displays, reliability</em></li>
+            <li><span>04</span><strong>Installation</strong><em>Deploy, calibrate, commission</em></li>
+            <li><span>05</span><strong>Support</strong><em>Live events, updates, recovery</em></li>
+          </ol>
+        </div>
+
+        <!-- Industries -->
+        <div class="industries reveal">
+          <span class="industries__label">Industries</span>
+          <ul>
+            <li>Events &amp; Exhibitions</li><li>Museums &amp; Culture</li><li>Government</li>
+            <li>Telecommunications</li><li>Banking &amp; Finance</li><li>Real Estate</li>
+            <li>Tourism</li><li>Retail</li><li>Corporate</li><li>Brand Activations</li>
+            <li>Sustainability</li><li>Entertainment</li><li>Education</li><li>Experience Centres</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACT ====================== -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact__inner reveal">
+          <p class="contact__eyebrow">06 · Contact</p>
+          <h2 class="contact__title">Let's build something<br><em>immersive.</em></h2>
+          <p class="contact__sub">
+            Working on an installation, exhibition or experience centre? I'd love to hear about it —
+            from early concept through to on-site delivery.
+          </p>
+          <div class="contact__actions">
+            <a href="mailto:fajeljaseem1@gmail.com" class="btn btn--primary btn--lg" data-cursor="hover">
+              <svg viewBox="0 0 24 24" width="18" height="18"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>fajeljaseem1@gmail.com</span>
+            </a>
+            <button class="btn btn--ghost" id="copyEmail" data-cursor="hover" data-email="fajeljaseem1@gmail.com">Copy email</button>
+          </div>
+          <p class="contact__loc">📍 United Arab Emirates · Available for projects worldwide</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== PROJECT VIDEO POPUP ====================== -->
+  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="videoModalTitle">
+    <button class="video-modal__backdrop" type="button" aria-label="Close project video"></button>
+    <div class="video-modal__panel">
+      <button class="video-modal__close" type="button" aria-label="Close project video">×</button>
+      <div class="video-modal__screen">
+        <video id="projectVideo" controls playsinline preload="metadata"></video>
+        <div class="video-modal__empty" id="videoModalEmpty">
+          <span>Video coming soon</span>
+        </div>
+      </div>
+      <div class="video-modal__info">
+        <span class="video-modal__eyebrow">Project film</span>
+        <h2 id="videoModalTitle">Project</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__name">Mohammed Fajel Jaseem</span>
+        <span class="footer__role">Head of Programming · Senior Unity Developer</span>
+      </div>
+      <p class="footer__note">Designed &amp; built for immersive, interactive experiences.</p>
+      <p class="footer__copy">© <span id="year">2026</span> Fajel Jaseem</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
