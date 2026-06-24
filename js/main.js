@@ -287,69 +287,78 @@
   const videoModalTitle = $('#videoModalTitle');
   const closeVideoButtons = $$('.video-modal__close, .video-modal__backdrop');
 
-  projects.forEach(project => {
+  // Build the src from the visible title; encode it so spaces and "&" are safe
+  // both over http and when the page is opened directly as a file.
+  function videoSrcFor(project) {
+    const title = $('.project__title', project).textContent.trim();
+    return 'videos/' + encodeURIComponent(title) + '.mp4';
+  }
+
+  // Detect each project's video by probing a <video> element directly.
+  // No fetch() is used, so this works on file:// (double-clicking index.html)
+  // as well as over a server. preload="metadata" keeps it lightweight.
+  projects.forEach(prepareProjectThumbnail);
+
+  function prepareProjectThumbnail(project) {
+    if (project.querySelector('.project__thumbnail')) return;
+
+    const preview = document.createElement('video');
+    preview.muted = true;
+    preview.playsInline = true;
+    preview.preload = 'metadata';
+    preview.setAttribute('aria-hidden', 'true');
+
+    // Video exists and is playable -> build thumbnail and make the card clickable.
+    preview.addEventListener('loadedmetadata', () => {
+      const thumbnail = document.createElement('div');
+      thumbnail.className = 'project__thumbnail';
+      const play = document.createElement('span');
+      play.className = 'project__thumbnail-play';
+      play.setAttribute('aria-hidden', 'true');
+      play.textContent = '▶';
+      thumbnail.append(preview, play);
+      project.prepend(thumbnail);
+      project.classList.add('has-video');
+      enableVideoClick(project);
+
+      // Seek to a representative frame so the card shows a poster, not a black box.
+      const t = Number.isFinite(preview.duration) ? Math.min(0.5, preview.duration * 0.05) : 0.1;
+      preview.addEventListener('seeked', () => preview.pause(), { once: true });
+      try { preview.currentTime = t; } catch {}
+    }, { once: true });
+
+    // Missing/unplayable file -> leave the card as a normal, non-clickable card.
+    preview.addEventListener('error', () => {}, { once: true });
+
+    preview.src = videoSrcFor(project);
+    preview.load();
+  }
+
+  function enableVideoClick(project) {
+    if (project._videoBound) return;
+    project._videoBound = true;
     project.setAttribute('tabindex', '0');
     project.setAttribute('role', 'button');
-    prepareProjectThumbnail(project);
     const open = () => openProjectVideo(project);
     project.addEventListener('click', open);
     project.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
     });
-  });
-
-  function getProjectVideo(project) {
-    if (project._videoCheck) return project._videoCheck;
-    const title = $('.project__title', project).textContent.trim();
-    const src = `videos/${title}.mp4`;
-    project._videoCheck = fetch(src, { method: 'HEAD' })
-      .then(response => response.ok ? src : null)
-      .catch(() => null);
-    return project._videoCheck;
   }
 
-  async function prepareProjectThumbnail(project) {
-    const src = await getProjectVideo(project);
-    if (!src || project.querySelector('.project__thumbnail')) return;
-
-    const thumbnail = document.createElement('div');
-    thumbnail.className = 'project__thumbnail';
-    thumbnail.innerHTML = `
-      <video muted playsinline preload="auto" aria-hidden="true"></video>
-      <span class="project__thumbnail-play" aria-hidden="true">▶</span>
-    `;
-    const preview = $('video', thumbnail);
-    preview.src = src;
-    preview.addEventListener('loadedmetadata', () => {
-      const previewTime = Number.isFinite(preview.duration)
-        ? Math.min(0.35, Math.max(0, preview.duration * 0.05))
-        : 0.1;
-      preview.currentTime = previewTime;
-    }, { once: true });
-    preview.addEventListener('seeked', () => preview.pause(), { once: true });
-    project.prepend(thumbnail);
-    project.classList.add('has-video');
-  }
-
-  async function openProjectVideo(project) {
+  function openProjectVideo(project) {
     if (!videoModal || !projectVideo) return;
-    const title = $('.project__title', project).textContent.trim();
-    const src = await getProjectVideo(project);
-    videoModalTitle.textContent = title;
-    videoModal.classList.remove('has-video');
-    projectVideo.removeAttribute('src');
-    projectVideo.load();
-    videoModal.classList.add('is-open');
+    videoModalTitle.textContent = $('.project__title', project).textContent.trim();
+    videoModal.classList.add('is-open', 'has-video');
     videoModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
-    $('.video-modal__close').focus();
-
-    try {
-      if (!src || !videoModal.classList.contains('is-open')) return;
-      projectVideo.src = src;
-      videoModal.classList.add('has-video');
-      projectVideo.play().catch(() => {});
-    } catch {}
+    // If the full video somehow fails, fall back to the modal's empty state.
+    projectVideo.onerror = () => videoModal.classList.remove('has-video');
+    projectVideo.src = videoSrcFor(project);
+    projectVideo.load();
+    projectVideo.play().catch(() => {});
+    const closeBtn = $('.video-modal__close');
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeProjectVideo() {
