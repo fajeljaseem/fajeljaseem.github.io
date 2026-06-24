@@ -160,12 +160,11 @@
       raf = requestAnimationFrame(draw);
     }
 
-    const hero = $('#home');
-    hero.addEventListener('mousemove', e => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top;
+    window.addEventListener('mousemove', e => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     });
-    hero.addEventListener('mouseleave', () => { mouse.x = mouse.y = null; });
+    document.addEventListener('mouseleave', () => { mouse.x = mouse.y = null; });
 
     window.addEventListener('resize', size);
     document.addEventListener('visibilitychange', () => {
@@ -196,8 +195,20 @@
      --------------------------------------------------------- */
   const toggle = $('#navToggle');
   if (toggle) {
-    toggle.addEventListener('click', () => nav.classList.toggle('is-open'));
-    $$('#navLinks a').forEach(a => a.addEventListener('click', () => nav.classList.remove('is-open')));
+    const setMenu = open => {
+      nav.classList.toggle('is-open', open);
+      document.body.classList.toggle('nav-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    toggle.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
+    $$('#navLinks a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) setMenu(false);
+    });
+    window.addEventListener('resize', () => {
+      if (innerWidth > 900 && nav.classList.contains('is-open')) setMenu(false);
+    });
   }
 
   /* ---------------------------------------------------------
@@ -264,6 +275,108 @@
   /* ---------------------------------------------------------
      9. Project filtering
      --------------------------------------------------------- */
+  const projectManifest = [
+    {
+      title: 'Interactive AI Chatbot',
+      category: 'ai interactive',
+      label: 'AI · Conversational',
+      description: 'An interactive AI chatbot installation that gives visitors a new way to engage with digital content through a dedicated physical experience.',
+      tags: ['Conversational AI', 'Interactive Installation', 'Real-time']
+    },
+    {
+      title: 'AI-Powered Photobooth',
+      category: 'ai interactive',
+      label: 'AI · Photobooth',
+      description: 'An event-ready AI photobooth with visitor registration, live capture and generated-image processing across coordinated displays.',
+      tags: ['Unity', 'AI Imaging', 'Camera', 'Multi-screen']
+    },
+    {
+      title: 'Body-Tracking Shape Game',
+      category: 'interactive ai',
+      label: 'Vision · Body Tracking',
+      description: 'A full-body interactive wall game where players use physical movement to engage with and match colourful shapes on screen.',
+      tags: ['Unity', 'Body Tracking', 'Interactive Game']
+    },
+    {
+      title: 'RFID & Rotating Knob Experience',
+      category: 'hardware interactive',
+      label: 'Hardware · Tangible',
+      description: 'A tangible heritage experience where RFID-tagged objects select content and a physical rotary control navigates the visual story.',
+      tags: ['Unity', 'RFID', 'Rotary Control', 'Tangible']
+    },
+    {
+      title: '3D Live Billboard with Motion Tracking',
+      category: 'interactive led',
+      label: 'Vision · 3D Display',
+      description: 'A large-format 3D billboard experience using viewer movement to strengthen the depth and spatial illusion of the displayed content.',
+      tags: ['Motion Tracking', '3D Content', 'LED Display']
+    },
+    {
+      title: 'Foosball on Multitouch Table',
+      category: 'interactive hardware game',
+      label: 'Game · Multi-touch',
+      description: 'A fast multiplayer digital foosball game designed for direct play on a large multi-touch table.',
+      tags: ['Unity', 'Multi-touch', 'Multiplayer']
+    },
+    {
+      title: 'Hole in the Wall with Femto',
+      category: 'interactive ai game',
+      label: 'Game · Body Tracking',
+      description: 'A controller-free physical game using depth-camera tracking as players move their bodies to pass through approaching wall shapes.',
+      tags: ['Unity', 'Depth Camera', 'Body Tracking']
+    },
+    {
+      title: 'Interactive LED Wall Live Art',
+      category: 'interactive led',
+      label: 'LED · Live Art',
+      description: 'A tablet-controlled live-art experience where drawing and colour input appear instantly across a large modular LED wall.',
+      tags: ['LED Wall', 'Touch Input', 'Live Visuals']
+    },
+    {
+      title: 'Penalty Shootout with Kinect',
+      category: 'interactive ai game',
+      label: 'Game · Motion Tracking',
+      description: 'An energetic penalty-shootout game where Kinect tracking converts the player’s kicking movement into an on-screen shot.',
+      tags: ['Unity', 'Kinect', 'Interactive Game']
+    },
+    {
+      title: 'Photobooth with Curved Wall',
+      category: 'interactive led',
+      label: 'Photobooth · LED',
+      description: 'A camera-based visitor experience that captures the participant and presents the result inside a surrounding curved display environment.',
+      tags: ['Unity', 'Camera', 'Curved LED']
+    },
+    {
+      title: 'Running Game with Femto',
+      category: 'interactive ai game',
+      label: 'Game · Depth Camera',
+      description: 'A body-tracked running game where the participant’s movement controls an on-screen runner in real time.',
+      tags: ['Unity', 'Depth Camera', 'Motion']
+    },
+    {
+      title: 'TouchDesigner Water Effect with Hand Tracking',
+      category: 'interactive ai',
+      label: 'Generative · Hand Tracking',
+      description: 'A fluid real-time water visual in TouchDesigner that responds dynamically to tracked hand position and movement.',
+      tags: ['TouchDesigner', 'Hand Tracking', 'Generative Visuals']
+    }
+  ];
+
+  const projectsContainer = $('#projects');
+  if (projectsContainer) {
+    projectsContainer.innerHTML = projectManifest.map((project, index) => `
+      <article class="project reveal in-view" data-category="${project.category}" data-cursor="hover">
+        <div class="project__top">
+          <span class="project__index">${String(index + 1).padStart(2, '0')}</span>
+          <span class="project__cat">${project.label}</span>
+        </div>
+        <h3 class="project__title">${project.title}</h3>
+        <p class="project__desc">${project.description}</p>
+        <ul class="project__tags">${project.tags.map(tag => `<li>${tag}</li>`).join('')}</ul>
+      </article>
+    `).join('');
+  }
+
   const filters = $$('#filters .filter');
   const projects = $$('#projects .project');
   filters.forEach(btn => {

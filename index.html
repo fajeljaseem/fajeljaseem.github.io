@@ -33,8 +33,11 @@
     <div class="cursor" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- ====================== SCROLL PROGRESS ====================== -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+  <!-- ====================== SCROLL PROGRESS ====================== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Persistent particle network background -->
+  <canvas class="hero__canvas site-network" id="heroCanvas" aria-hidden="true"></canvas>
 
     <!-- ====================== NAV ====================== -->
     <header class="nav" id="nav">
@@ -50,16 +53,15 @@
             <a href="#approach" data-cursor="hover">Approach</a>
             <a href="#contact" class="nav__cta" data-cursor="hover">Contact</a>
         </nav>
-        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
             <span></span><span></span><span></span>
         </button>
     </header>
 
     <main>
-        <!-- ====================== HERO ====================== -->
-        <section class="hero" id="home">
-            <canvas class="hero__canvas" id="heroCanvas"></canvas>
-            <div class="hero__grid"></div>
+    <!-- ====================== HERO ====================== -->
+    <section class="hero" id="home">
+      <div class="hero__grid"></div>
             <div class="hero__glow"></div>
 
             <div class="hero__content">
@@ -220,16 +222,16 @@
                 <div class="section__head reveal">
                     <span class="section__num">03</span>
                     <h2 class="section__title">Selected projects</h2>
-                    <p class="section__intro">A cross-section of installations spanning interaction, AI, hardware, LED and data.</p>
+          <p class="section__intro">Project films spanning AI, computer vision, interactive games, physical installations and real-time experiences.</p>
                 </div>
 
                 <div class="filters reveal" id="filters">
                     <button class="filter is-active" data-filter="all" data-cursor="hover">All</button>
                     <button class="filter" data-filter="interactive" data-cursor="hover">Interactive</button>
                     <button class="filter" data-filter="ai" data-cursor="hover">AI</button>
-                    <button class="filter" data-filter="hardware" data-cursor="hover">Hardware</button>
-                    <button class="filter" data-filter="led" data-cursor="hover">LED</button>
-                    <button class="filter" data-filter="data" data-cursor="hover">Data</button>
+          <button class="filter" data-filter="hardware" data-cursor="hover">Hardware</button>
+          <button class="filter" data-filter="led" data-cursor="hover">LED</button>
+          <button class="filter" data-filter="game" data-cursor="hover">Games</button>
                 </div>
 
                 <div class="projects" id="projects">
@@ -250,7 +252,7 @@
                             <span class="project__cat">AI · XR</span>
                         </div>
                         <h3 class="project__title">Touchdesigner Projects</h3>
-                        <p class="project__desc" Developed a real-time interactive visual experience using TouchDesigner, combining dynamic graphics, live data, video content, and user inputs. The system responds instantly to interactions through sensors, touchscreens, cameras, creating an engaging and immersive experience..</p>
+                        <p class="project__desc">Real-time interactive visuals combining dynamic graphics, cameras, sensors and responsive user input.</p>
                         <ul class="project__tags"><li>Unity</li><li>VR / Quest</li><li>LLM</li><li>Voice</li></ul>
                     </article>
 
@@ -676,6 +678,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=2"></script>
 </body>
 </html>
