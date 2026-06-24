@@ -502,7 +502,26 @@ body.modal-open { overflow: hidden; }
   .about__grid { grid-template-columns: 1fr; }
   .lifecycle__steps { grid-template-columns: repeat(2, 1fr); }
 
-  .nav { z-index: 300; }
+  .nav {
+    z-index: 300;
+    padding: 16px var(--pad);
+    min-height: 76px;
+  }
+  .nav.is-scrolled { padding-block: 12px; }
+  .hero {
+    min-height: 100svh;
+    align-items: flex-start;
+    padding-top: 124px;
+    padding-bottom: 88px;
+  }
+  .hero__content { width: 100%; }
+  .hero__eyebrow {
+    max-width: 100%;
+    line-height: 1.55;
+    border-radius: 24px;
+    margin-bottom: 24px;
+  }
+  .hero__scroll { display: none; }
   .nav.is-open {
     height: 100dvh;
     align-items: flex-start;
